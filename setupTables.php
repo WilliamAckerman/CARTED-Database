@@ -11,7 +11,7 @@ if($con->connect_error){
 
 $sql = "DROP TABLE IF EXISTS CARTELS";
 if($con->query($sql) === TRUE) {
-    echo "Cartels table being initialized...";
+    echo "Cartels table being initialized...<br>";
 }
 $sql2 = "CREATE TABLE CARTELS (
     cartelID INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,15 +21,15 @@ $sql2 = "CREATE TABLE CARTELS (
     country VARCHAR(30) NOT NULL
     )";
 if($con->query($sql2) === TRUE) {
-    echo "Cartels table initialized.";
+    echo "Cartels table initialized.<br>";
 }
 else {
-    echo "Failed to initialize cartels table: " . $con->error;
+    echo "Failed to initialize cartels table: " . $con->error . "<br>";
 }
 
 $sql3 = "DROP TABLE IF EXISTS CRIMES";
 if($con->query($sql3) === TRUE) {
-    echo "Crimes table being initialized...";
+    echo "Crimes table being initialized...<br>";
 }
 $sql4 = "CREATE TABLE CRIMES (
     crimeID INT PRIMARY KEY AUTO_INCREMENT,
@@ -37,15 +37,27 @@ $sql4 = "CREATE TABLE CRIMES (
     crimeDesc VARCHAR(100) NOT NULL
     )";
 if($con->query($sql4) === TRUE) {
-    echo "Crimes table initialized."
+    echo "Cartels table initialized.<br>";
 }
 else {
-    echo "Failed to initialized crimes table: " . $con->error;
+    echo "Failed to initialize crimes table: " . $con->error . "<br>";
 }
 
 $sql5 = "DROP TABLE IF EXISTS DRUGS";
-if($con->query($sql5) === TRUE) {
-    echo "Drugs table being initialized.";
+if($con->query($sql3) === TRUE) {
+    echo "Drugs table being initialized...<br>";
+}
+$sql6 = "CREATE TABLE DRUGS (
+    drugID INT PRIMARY KEY AUTO_INCREMENT,
+    drugName VARCHAR(20) UNIQUE,
+    drugType VARCHAR(24),
+    pricePerGram DECIMAL (10, 2)
+    )";
+if($con->query($sql6) === TRUE) {
+    echo "Drugs table initialized.<br>";
+}
+else {
+    echo "Failed to initialize drugs table: " . $con->error . "<br>";
 }
 
 $con->close();
