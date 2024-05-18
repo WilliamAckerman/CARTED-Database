@@ -10,7 +10,10 @@ if($con->connect_error){
 
 $sql = "CREATE DATABASE IF NOT EXISTS CARTED";
 if($con->query($sql) === TRUE){
-    echo "Database created successfully";
+    echo "Database created successfully.<br>";
+    $target = 'setupTables.php';
+    $linkname = "Click this link to set up tables.<br>";
+    echo "<a href='".$target."'>Link</a>";
 }
 else {
     echo "Error creating database: " . $con->error;

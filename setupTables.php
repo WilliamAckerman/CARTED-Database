@@ -60,9 +60,50 @@ else {
     echo "Failed to initialize drugs table: " . $con->error . "<br>";
 }
 
-$sql7 = "DROP TABLE IF EXISTS INCIDENTS";
+$sql7 = "DROP TABLE IF EXISTS SUSPECTS";
 if($con->query($sql7) === TRUE) {
+    echo "Suspects table being initialized...<br>";
+}
+
+$sql8 = "CREATE TABLE SUSPECTS (
+    suspectID INT PRIMARY KEY AUTO_INCREMENT,
+    fName VARCHAR(20) NOT NULL,
+    mName VARCHAR(20),
+    lName VARCHAR(50),
+    nickname VARCHAR(50),
+    arrested BOOLEAN,
+    arrestedPrior BOOLEAN,
+    height_cm INT NOT NULL,
+    weight_kg INT NOT NULL,
+    suspectAddress VARCHAR(200),
+    tattoos VARCHAR(150),
+    gender CHAR(1)
+    )";
+if($con->query($sql8) === TRUE) {
+    echo "Suspects table intialized.<br>";
+}
+
+$sql9 = "DROP TABLE IF EXISTS INCIDENTS";
+if($con->query($sql9) === TRUE) {
     echo "Incidents table being initialized...<br>";
+}
+
+$sql10 = "CREATE TABLE INCIDENTS (
+    incidentID INT PRIMARY KEY AUTO_INCREMENT,
+    incidentTime TIME,
+    incidentDate DATE,
+    incidentLocation VARCHAR(30) NOT NULL,
+    incidentState CHAR(2) NOT NULL,
+    drugWeight DECIMAL(10, 2),
+    estPrice DECIMAL(10, 2),
+    gangAffiliation BOOLEAN,
+    narrative VARCHAR(300)
+    )";
+if($con->query($sql10) === TRUE) {
+    echo "Incidents table intialized.<br>";
+}
+else {
+    echo "Failed to initialize incidents table: " . $con->error . "<br>";
 }
 
 $con->close();
