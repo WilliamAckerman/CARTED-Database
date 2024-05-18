@@ -106,5 +106,26 @@ else {
     echo "Failed to initialize incidents table: " . $con->error . "<br>";
 }
 
+$sql11 = "DROP TABLE IF EXISTS USERS";
+if($con->query($sql11) === TRUE) {
+    echo "Users table being initialized...<br>";
+}
+
+$sql12 = "CREATE TABLE USERS (
+    userID INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) UNIQUE,
+    userFName VARCHAR(20) NOT NULL,
+    userLName VARCHAR(50),
+    userEmail VARCHAR(60) NOT NULL,
+    userPhone CHAR(10) NOT NULL,
+    userPosition VARCHAR(20) NOT NULL
+    )";
+if($con->query($sql12) === TRUE) {
+    echo "Users table initialized.<br>";
+}
+else {
+    echo "Failed to initialize users table: " . $con->error . "<br>";
+}
+
 $con->close();
 ?>
