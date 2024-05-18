@@ -43,5 +43,10 @@ else {
     echo "Failed to initialized crimes table: " . $con->error;
 }
 
+$sql5 = "DROP TABLE IF EXISTS DRUGS";
+if($con->query($sql3) === TRUE) {
+    echo "Drugs table being initialized...";
+}
+
 $con->close();
 ?>
