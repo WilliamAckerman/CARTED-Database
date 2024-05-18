@@ -44,7 +44,7 @@ else {
 }
 
 $sql5 = "DROP TABLE IF EXISTS DRUGS";
-if($con->query($sql3) === TRUE) {
+if($con->query($sql5) === TRUE) {
     echo "Drugs table being initialized...<br>";
 }
 $sql6 = "CREATE TABLE DRUGS (
@@ -60,9 +60,9 @@ else {
     echo "Failed to initialize drugs table: " . $con->error . "<br>";
 }
 
-$sql5 = "DROP TABLE IF EXISTS DRUGS";
-if($con->query($sql3) === TRUE) {
-    echo "Drugs table being initialized...";
+$sql7 = "DROP TABLE IF EXISTS INCIDENTS";
+if($con->query($sql7) === TRUE) {
+    echo "Incidents table being initialized...<br>";
 }
 
 $con->close();
