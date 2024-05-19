@@ -1,18 +1,23 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'CARTED';
-
-$con = new mysqli($servername, $username, $password, $db);
-if($con->connect_error){
-    die("Connection failed: " . $con->connect_error);
-}
-
+include ('CARTEDConnect.php');
+?>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Table Setup</title>
+<link rel="icon" type="image/x-icon" href="LogoImage.png">
+</head>
+<body class="body">
+<div class="w3-container w3-teal">
+        <h1>Database Table Setup</h1>
+    </div>
+    <br><img src="LogoImage.png" alt="Logo Image" class="center"><br>
+    <?php
 $sql = "DROP TABLE IF EXISTS CARTELS";
-if($con->query($sql) === TRUE) {
+if($con->query($sql) === TRUE)
     echo "Cartels table being initialized...<br>";
-}
+
 $sql2 = "CREATE TABLE CARTELS (
     cartelID INT PRIMARY KEY AUTO_INCREMENT,
     cartelName VARCHAR(50) NOT NULL UNIQUE,
@@ -112,13 +117,15 @@ if($con->query($sql11) === TRUE) {
 }
 
 $sql12 = "CREATE TABLE USERS (
-    userID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(30) UNIQUE,
     userFName VARCHAR(20) NOT NULL,
     userLName VARCHAR(50),
     userEmail VARCHAR(60) NOT NULL,
     userPhone CHAR(10) NOT NULL,
-    userPosition VARCHAR(20) NOT NULL
+    userPosition VARCHAR(20) NOT NULL,
+    userPassword VARCHAR(20) NOT NULL,
+    PRIMARY KEY (userID)
     )";
 if($con->query($sql12) === TRUE) {
     echo "Users table initialized.<br>";
@@ -129,3 +136,8 @@ else {
 
 $con->close();
 ?>
+<form action="RegiLog.php">
+    <button class = "button" value="Submit">Continue</button>
+</form>
+</body>
+</html>
