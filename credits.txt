@@ -1,0 +1,9 @@
+Some sources that helped in this project:
+
+Login form validation: 
+https://www.youtube.com/watch?v=y-ZbTRcH3v4. 
+https://www.youtube.com/watch?v=XEIbbhNYHAk. 
+
+Password hashing: 
+https://www.youtube.com/watch?v=G8x1cM6dvlM. 
+https://www.youtube.com/watch?v=Qq96ZgiY1dY. 

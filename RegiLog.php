@@ -14,11 +14,13 @@ include ('CARTEDConnect.php');
     </div>
     <br><h2>Welcome to CARTED</h2>
     <img src="LogoImage.png" alt="Logo Image" class="center"><br>
-    <form action="RegiLog.php">
+    <form action="login.php">
     <button class = "button" value="Submit">Login</button>
 </form>
 <form action="Registration.php">
+    <div class="vertical-center">
     <button class = "button" value="Submit">Register</button>
+    </div>
 </form>
 </body>
 </html>

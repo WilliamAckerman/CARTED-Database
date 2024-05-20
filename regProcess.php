@@ -14,6 +14,8 @@ include ('CARTEDConnect.php');
     <br></div>
     <img src="LogoImage.png" alt="Logo Image" class="center"><br>
     <?php
+        
+        
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = test_input($_POST["username"]);
             $userFName = test_input($_POST["userFName"]);
@@ -25,6 +27,58 @@ include ('CARTEDConnect.php');
             $userCPassword = test_input($_POST["userCPassword"]);
         }
 
+        $error = "";
+
+        if(empty($_POST["username"])) {
+            $error = $error . "No username entered.<br>";
+        }
+        if(empty($_POST["userFName"])) {
+            $error = $error . "Please enter a first name.<br>";
+        }
+        if(empty($_POST["userLName"])) {
+            $error = $error . "Please enter a last name.<br>";
+        }
+
+        if(empty($_POST["userEmail"])) {
+            $error = $error . "Please enter an email address.<br>";
+        }
+        else if(!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+            $error = $error . "Invalid email format.<br>";
+        }
+
+        if(empty($_POST["userPhone"])) {
+            $error = $error . "Please enter a phone number.<br>";
+        }
+
+        if(empty($_POST["userPassword"])) {
+            $error += "Please enter a password.<br>";
+        } else {
+            if(strlen($userPassword) < 8) {
+                $error = $error . "Password should be at least 8 characters long.<br>";
+            } elseif(!preg_match("#[0-9]+#", $userPassword)) {
+                $error = $error . "Password should include at least one number.<br>";
+            }
+            elseif(!preg_match("#[A-Z]+#", $userPassword)) {
+                $error = $error . "Password should include at least one uppercase letter.<br>";
+            } elseif(!preg_match("#[a-z]+#", $userPassword)) {
+                $error = $error . "Password should include at least one lowercase letter.<br>";
+            }
+        }
+        if(strcmp($userPassword, $userCPassword) != 0) {
+            $error = $error . "Passwords do not match.<br>";
+        } else {
+            if(strlen($userCPassword) < 8) {
+                $error = $error . "Password for re-enter password field should be at least 8 characters long.<br>";
+            } elseif(!preg_match("#[0-9]+#", $userCPassword)) {
+                $error = $error . "Password for re-enter password field should include at least one number.<br>";
+            }
+            elseif(!preg_match("#[A-Z]+#", $userCPassword)) {
+                $error = $error . "Password for re-enter password field should include at least one uppercase letter.<br>";
+            } elseif(!preg_match("#[a-z]+#", $userCPassword)) {
+                $error = $error . "Password for re-enter password field should include at least one lowercase letter.<br>";
+            }
+        }
+
         function test_input($data) {
             $data = trim($data);
             $data = stripslashes($data);
@@ -32,14 +86,21 @@ include ('CARTEDConnect.php');
             return $data;
         }
 
-        $sql = "INSERT INTO USERS (username, userFName, userLName, userEmail, userPhone, userPosition, userPassword)
-        VALUES ('$username', '$userFName', '$userLName', '$userEmail', '$userPhone', '$userPosition', '$userPassword')";
-
-        if($con->query($sql) === TRUE) {
-            echo "New user successfully created.";
-        } else {
-            echo "Failed to create new user: <br>" . $con->error;
+        if(empty($error)) {
+            $hashedPassword = password_hash($userPassword, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO USERS (username, userFName, userLName, userEmail, userPhone, userPosition, userPassword)
+            VALUES ('$username', '$userFName', '$userLName', '$userEmail', '$userPhone', '$userPosition', '$userPassword')";
+    
+            if($con->query($sql) === TRUE) {
+                echo "New user successfully created.";
+            } else {
+                echo "Failed to create new user: <br>" . $con->error;
+            }
         }
+        else {
+            echo $error;
+        }
+
         ?>
         <form action="RegiLog.php">
          <button class = "button" value="Submit">Return to Login/Registration Selection</button>
