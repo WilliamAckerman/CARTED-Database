@@ -66,3 +66,11 @@ hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

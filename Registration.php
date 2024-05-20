@@ -51,5 +51,8 @@ include ('CARTEDConnect.php');
         <button type="submit" class="button">Register</button>
     </div>
 </form>
+<form action="RegiLog.php">
+    <button class = "button" value="Submit">Return</button>
+</form>
 </body>
 </html>
