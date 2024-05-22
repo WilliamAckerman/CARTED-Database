@@ -1,8 +1,14 @@
 Some sources that helped in this project:
 
+Drug pricing information:
+https://dataunodc.un.org/dp-drug-prices. 
+
 Login form validation: 
 https://www.youtube.com/watch?v=y-ZbTRcH3v4. 
 https://www.youtube.com/watch?v=XEIbbhNYHAk. 
+
+Login/Logout:
+https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php. 
 
 Password hashing: 
 https://www.youtube.com/watch?v=G8x1cM6dvlM. 

@@ -54,9 +54,10 @@ if($con->query($sql5) === TRUE) {
 }
 $sql6 = "CREATE TABLE DRUGS (
     drugID INT PRIMARY KEY AUTO_INCREMENT,
-    drugName VARCHAR(20) UNIQUE,
-    drugType VARCHAR(24),
-    pricePerGram DECIMAL (10, 2)
+    drugName VARCHAR(24) UNIQUE,
+    drugType VARCHAR(32),
+    unit VARCHAR(12),
+    unitPrice DECIMAL (10, 2)
     )";
 if($con->query($sql6) === TRUE) {
     echo "Drugs table initialized.<br>";

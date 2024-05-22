@@ -1,5 +1,6 @@
 <?php
 include ('CARTEDConnect.php');
+session_unset();
 ?>
 <html>
 <head>
@@ -18,9 +19,7 @@ include ('CARTEDConnect.php');
     <button class = "button" value="Submit">Login</button>
 </form>
 <form action="Registration.php">
-    <div class="vertical-center">
     <button class = "button" value="Submit">Register</button>
-    </div>
 </form>
 </body>
 </html>
