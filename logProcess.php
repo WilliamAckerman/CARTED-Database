@@ -57,9 +57,35 @@ include ('CARTEDConnect.php');
                 $data = mysqli_fetch_assoc($query);
                 if($data['userPassword']==$userPassword) {
                     echo "Successfully logged in.";
+                    print_r($data);
+                    session_start();
+                    $_SESSION['username'] = $data['username'];
+                    $_SESSION['userFName'] = $data['userFName'];
+                    $_SESSION['userLName'] = $data['userLName'];
+                    $_SESSION['userEmail'] = $data['userEmail'];
+                    $_SESSION['userPhone'] = $data['userPhone'];
+                    $_SESSION['userPosition'] = $data['userPosition'];
+                    $_SESSION['userPassword'] = $data['userPassword'];
+                    echo $_SESSION['username'];
+                    ?>
+                    <form action="index.php">
+                    <button class = "button" value="Submit">Continue</button>
+                    </form>
+                    <form action="logout.php">
+                    <button class = "button" value="Submit">Return</button>
+                    </form>
+                    <?php
                 } else {
                     echo "Wrong password entered.";
                 }
+            }
+            else {
+                echo "Username/password combination does not exist.";
+                ?>
+                <form action="RegiLog.php">
+                <button class = "button" value="Submit">Return</button>
+                </form>
+            <?php
             }
         }
     ?>
