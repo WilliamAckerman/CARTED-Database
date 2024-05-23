@@ -74,14 +74,14 @@ include ('CARTEDConnect.php');
                     $_SESSION['userPosition'] = $data['userPosition'];
                     $_SESSION['userPassword'] = $data['userPassword'];
                     ?>
-                    <form action="index.php">
+                    <form action="mainPage.php">
                     <div class="w3-container">
                     <button class = "button" value="Submit">Continue</button>
                     </div>
                     </form>
                     <form action="logout.php">
                     <div class="w3-container">
-                    <button class = "button" value="Submit">Return</button>
+                    <button class = "button" value="Submit">Log Out</button>
                     </div>
                     </form>
                     <div style="divText">

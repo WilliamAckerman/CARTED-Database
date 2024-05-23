@@ -1,6 +1,6 @@
 <?php
 include ('CARTEDConnect.php');
-session_unset();
+session_destroy();
 ?>
 <html>
 <head>
