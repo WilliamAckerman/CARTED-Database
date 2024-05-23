@@ -13,6 +13,7 @@ include ('CARTEDConnect.php');
         <h1>Database Table Setup</h1>
     </div>
     <br><img src="LogoImage.png" alt="Logo Image" class="center"><br>
+    <div class="divText">
     <?php
 $sql = "DROP TABLE IF EXISTS CARTELS";
 if($con->query($sql) === TRUE)
@@ -137,8 +138,11 @@ else {
 
 $con->close();
 ?>
+</div>
 <form action="RegiLog.php">
+    <div class="divText">
     <button class = "button" value="Submit">Continue</button>
+    </div>
 </form>
 </body>
 </html>

@@ -3,6 +3,9 @@ Some sources that helped in this project:
 Drug pricing information:
 https://dataunodc.un.org/dp-drug-prices. 
 
+Fetching database data:
+https://www.youtube.com/watch?v=wHspfWWn1II. 
+
 Login form validation: 
 https://www.youtube.com/watch?v=y-ZbTRcH3v4. 
 https://www.youtube.com/watch?v=XEIbbhNYHAk. 
