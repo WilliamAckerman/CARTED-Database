@@ -15,13 +15,19 @@ $result = mysqli_query($con, $query);
     }
 </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Users</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
 <body class="body">
-<div class="w3-container w3-teal">
-        <h1>Users</h1>
+<div class="header">
+    <a href="LogoImage.png" class="logo">Users</a>
+    <div class="header-right">
+        <a class="active" href="mainPage.php">Home</a>
+        <a href="#contact">Contact Us</a>
+        <a href="about.php">About Us</a>
+    </div>
 </div>
 <h2 class="display-6 text-center">Users</h2>
 <table>
