@@ -28,7 +28,7 @@ include ('CARTEDConnect.php');
     ('Heroin', 'Opioid', 'Kilograms', 35500),
     ('Pharmaceutical opioids', 'Opioid', 'Pill', 31),
     ('GBL', 'Sedatives/Tranquilizers', 'Ounce', 4.5),
-    ('GHB', 'Sedatives/Transquilizers', 'Ounce', 25)
+    ('GHB', 'Sedatives/Tranquilizers', 'Ounce', 25)
     ";
 if(isset($_POST['drugs'])) {
 if($con->query($sql) === TRUE)

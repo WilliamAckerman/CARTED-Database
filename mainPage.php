@@ -30,11 +30,11 @@ a:hover, a:active {
     </div>
     <div class="w3-bar w3-gray">
         <a href="about.php">About</a>
-        <a href="#">Contact</a>
+        <a href="#">Contact Us</a>
     </div>
-    <br><img src="LogoImage.png" alt="Logo Image" class="center"><br><br>
+    <br><img src="LogoImage.png" alt="Logo Image" class="center"><br>
     <div class="divText"><h2 text-align:center>Welcome, <?php echo $_SESSION['username']; ?></h2></div>
-    <div class="divText"><h3 text-align:center>Role: <?php echo $_SESSION['userPosition']; ?></h3></div>
+    <div class="divText"><h3 text-align:center>Role: <?php echo ucfirst($_SESSION['userPosition']); ?></h3></div>
     <hr>
     <form action="drugs.php">
         <div class="divText">

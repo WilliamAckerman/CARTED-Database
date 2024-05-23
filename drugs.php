@@ -27,6 +27,8 @@ $result = mysqli_query($con, $query);
 <div class="w3-container w3-teal">
         <h1>Drugs</h1>
 </div>
+<?php if(isset($_SESSION['username'])) {
+?>
 <h2 class="display-6 text-center">Drugs</h2>
 <table>
     <tr>
@@ -59,5 +61,19 @@ $result = mysqli_query($con, $query);
         <button class = "button" value="Submit">Return to Main Menu</button>
         </div>
     </form>
+<?php
+}
+else {
+    ?>
+    <div style="divText">You are not logged in.</div>
+    <hr>
+    <form action="RegiLog.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Go to Login/Registration</button>
+        </div>
+    </form>
+    <?php
+}
+?>
 </body>
 </html>
