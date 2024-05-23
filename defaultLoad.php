@@ -14,9 +14,21 @@ session_start();
         <h1>Load Tables with Sample Data</h1>
 </div>
 <div class="divText">
+<h3 text-align="center">Select which tables you would like to import sample data into.</h3>
 <form action="loadProcess.php" method="POST">
+    
+    <input type="checkbox" id="cartels" name="cartels" value="Cartels">
+    <label for="cartels">Cartels</label><br>
+
+    <input type="checkbox" id="crimes" name="crimes" value="Crimes">
+    <label for="crimes">Crimes</label><br>
+
     <input type="checkbox" id="drugs" name="drugs" value="Drugs">
     <label for="drugs">Drugs</label><br>
+
+    <input type="checkbox" id="suspects" name="suspects" value="Suspects">
+    <label for="suspects">Suspects</label><br>
+
     <button type="submit" class="button">Load Sample Data</button>
 </form>
 </div>

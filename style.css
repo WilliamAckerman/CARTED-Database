@@ -125,15 +125,12 @@ hr {
 
 table {
     font-family: arial, sans-serif;
+    border-collapse: collapse;
     width: 100%;
 }
 
-th {
+th, td {
     border: 1px solid #dddddd;
     text-align: left;
-}
-
-td {
-    border: 1px solid #dddddd;
-    text-align: left;
+    padding: 8px;
 }

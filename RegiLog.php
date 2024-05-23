@@ -18,8 +18,16 @@ session_unset();
         <h2>Welcome to CARTED</h2>
     <img src="LogoImage.png" alt="Logo Image" class="center"><br><br>
 <div class="divText">
-<a href="login.php">Login</a>
-<a href="registration.php">Register</a>
+<form action="login.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Log In</button>
+        </div>
+</form>
+<form action="Registration.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Register</button>
+        </div>
+</form>
 </div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php
 include ('CARTEDConnect.php');
 session_start();
-echo $_SESSION['username'];
 $query = "SELECT * FROM USERS";
 $result = mysqli_query($con, $query);
 ?>
