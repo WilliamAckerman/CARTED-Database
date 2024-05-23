@@ -48,11 +48,14 @@ include ('CARTEDConnect.php');
         <input type="password" placeholder="Re-Enter Password" name="userCPassword" id="userCPassword" required>
         <hr>
 
-        <button type="submit" class="button">Register</button>
+        <button type="submit" class="block">Register</button>
+        <hr>
     </div>
 </form>
 <form action="RegiLog.php">
+    <div class="divText">
     <button class = "button" value="Submit">Return</button>
+    </div>
 </form>
 </body>
 </html>

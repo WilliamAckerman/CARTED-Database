@@ -12,6 +12,7 @@ include ('CARTEDConnect.php');
     <div class="w3-container w3-teal">
         <h1>Login Process</h1>
     <br></div>
+    <div class="divText">
     <?php
     $error = "";
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,6 +49,13 @@ include ('CARTEDConnect.php');
 
         if(!empty($error)) {
             echo $error;
+            ?>
+            <form action="RegiLog.php">
+                <div class="w3-container">
+                <button class = "button" value="Submit">Return</button>
+                </div>
+            </form>
+            <?php
         }
         else {
             $query = mysqli_query($con, "SELECT * FROM USERS WHERE username = '$username'");
@@ -57,7 +65,6 @@ include ('CARTEDConnect.php');
                 $data = mysqli_fetch_assoc($query);
                 if($data['userPassword']==$userPassword) {
                     echo "Successfully logged in.";
-                    print_r($data);
                     session_start();
                     $_SESSION['username'] = $data['username'];
                     $_SESSION['userFName'] = $data['userFName'];
@@ -66,28 +73,42 @@ include ('CARTEDConnect.php');
                     $_SESSION['userPhone'] = $data['userPhone'];
                     $_SESSION['userPosition'] = $data['userPosition'];
                     $_SESSION['userPassword'] = $data['userPassword'];
-                    echo $_SESSION['username'];
                     ?>
                     <form action="index.php">
+                    <div class="w3-container">
                     <button class = "button" value="Submit">Continue</button>
+                    </div>
                     </form>
                     <form action="logout.php">
+                    <div class="w3-container">
                     <button class = "button" value="Submit">Return</button>
+                    </div>
                     </form>
+                    <div style="divText">
                     <?php
                 } else {
                     echo "Wrong password entered.";
+                    ?>
+                        <form action="RegiLog.php">
+                            <div class="w3-container">
+                                <button class = "button" value="Submit">Return</button>
+                            </div>
+                        </form>
+                    <?php
                 }
             }
             else {
-                echo "Username/password combination does not exist.";
+                echo "<br>Username/password combination does not exist.";
                 ?>
-                <form action="RegiLog.php">
+            <form action="RegiLog.php">
+                <div class="w3-container">
                 <button class = "button" value="Submit">Return</button>
-                </form>
+                </div>
+            </form>
             <?php
             }
         }
     ?>
+    </div>
 </body>
 </html>

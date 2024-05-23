@@ -13,6 +13,7 @@ include ('CARTEDConnect.php');
         <h1>Registration Process</h1>
     <br></div>
     <img src="LogoImage.png" alt="Logo Image" class="center"><br>
+    <div class="divText">
     <?php
         
         
@@ -102,8 +103,11 @@ include ('CARTEDConnect.php');
         }
 
         ?>
+        </div>
         <form action="RegiLog.php">
+        <div class="divText">
          <button class = "button" value="Submit">Return to Login/Registration Selection</button>
+         </div>
         </form>
 </body>
 </html>
