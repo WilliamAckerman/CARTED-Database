@@ -15,6 +15,7 @@ include ('CARTEDConnect.php');
     <br><img src="LogoImage.png" alt="Logo Image" class="center"><br>
     <div class="divText">
     <?php
+
     $sql = "INSERT INTO DRUGS (drugName, drugType, unit, unitPrice) VALUES
     ('Ecstasy', 'Ecastasy', 'Pill', 19.5),
     ('Amphetamine', 'ATS', 'Gram', 203),

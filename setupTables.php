@@ -15,11 +15,16 @@ include ('CARTEDConnect.php');
     <br><img src="LogoImage.png" alt="Logo Image" class="center"><br>
     <div class="divText">
     <?php
-$sql = "DROP TABLE IF EXISTS CARTELS";
+
+$sql = "DROP TABLE IF EXISTS INCIDENTS";
+if($con->query($sql) === TRUE)
+    echo "Incidents table being initialized...<br>";
+
+$sql0 = "DROP TABLE IF EXISTS CARTELS";
 if($con->query($sql) === TRUE)
     echo "Cartels table being initialized...<br>";
 
-$sql2 = "CREATE TABLE CARTELS (
+$sql2 = "CREATE TABLE IF NOT EXISTS CARTELS (
     cartelID INT PRIMARY KEY AUTO_INCREMENT,
     cartelName VARCHAR(50) NOT NULL UNIQUE,
     stateAbbr CHAR(2) NOT NULL,
@@ -37,13 +42,13 @@ $sql3 = "DROP TABLE IF EXISTS CRIMES";
 if($con->query($sql3) === TRUE) {
     echo "Crimes table being initialized...<br>";
 }
-$sql4 = "CREATE TABLE CRIMES (
+$sql4 = "CREATE TABLE IF NOT EXISTS CRIMES (
     crimeID INT PRIMARY KEY AUTO_INCREMENT,
     crimeName VARCHAR(24) UNIQUE,
     crimeDesc VARCHAR(100) NOT NULL
     )";
 if($con->query($sql4) === TRUE) {
-    echo "Cartels table initialized.<br>";
+    echo "Crimes table initialized.<br>";
 }
 else {
     echo "Failed to initialize crimes table: " . $con->error . "<br>";
@@ -53,7 +58,7 @@ $sql5 = "DROP TABLE IF EXISTS DRUGS";
 if($con->query($sql5) === TRUE) {
     echo "Drugs table being initialized...<br>";
 }
-$sql6 = "CREATE TABLE DRUGS (
+$sql6 = "CREATE TABLE IF NOT EXISTS DRUGS (
     drugID INT PRIMARY KEY AUTO_INCREMENT,
     drugName VARCHAR(24) UNIQUE,
     drugType VARCHAR(32),
@@ -72,7 +77,7 @@ if($con->query($sql7) === TRUE) {
     echo "Suspects table being initialized...<br>";
 }
 
-$sql8 = "CREATE TABLE SUSPECTS (
+$sql8 = "CREATE TABLE IF NOT EXISTS SUSPECTS (
     suspectID INT PRIMARY KEY AUTO_INCREMENT,
     fName VARCHAR(20) NOT NULL,
     mName VARCHAR(20),
@@ -95,7 +100,7 @@ if($con->query($sql9) === TRUE) {
     echo "Incidents table being initialized...<br>";
 }
 
-$sql10 = "CREATE TABLE INCIDENTS (
+$sql10 = "CREATE TABLE IF NOT EXISTS INCIDENTS (
     incidentID INT PRIMARY KEY AUTO_INCREMENT,
     incidentTime TIME,
     incidentDate DATE,
@@ -104,7 +109,19 @@ $sql10 = "CREATE TABLE INCIDENTS (
     drugWeight DECIMAL(10, 2),
     estPrice DECIMAL(10, 2),
     gangAffiliation BOOLEAN,
-    narrative VARCHAR(300)
+    narrative VARCHAR(300),
+    cartelID INT,
+    crimeID INT,
+    drugID INT,
+    suspectID INT,
+    CONSTRAINT FK_CARTEL FOREIGN KEY (cartelID)
+    REFERENCES CARTELS(cartelID),
+    CONSTRAINT FK_CRIME FOREIGN KEY (crimeID)
+    REFERENCES CRIMES(crimeID),
+    CONSTRAINT FK_DRUG FOREIGN KEY (drugID)
+    REFERENCES DRUGS(drugID),
+    CONSTRAINT FK_SUSPECT FOREIGN KEY (suspectID)
+    REFERENCES SUSPECTS(suspectID)
     )";
 if($con->query($sql10) === TRUE) {
     echo "Incidents table intialized.<br>";

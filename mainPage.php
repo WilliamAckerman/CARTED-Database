@@ -23,11 +23,37 @@ session_start();
     <div class="divText"><h2 text-align:center>Welcome, <?php echo $_SESSION['username']; ?></h2></div>
     <div class="divText"><h3 text-align:center>Role: <?php echo ucfirst($_SESSION['userPosition']); ?></h3></div>
     <hr>
+
+    <form action="mainPage.php">
+        <div class="divText">
+            <button class="button" value="Submit">View Cartels</button>
+        </div>
+    </form>
+
+    <form action="mainPage.php">
+        <div class="divText">
+            <button class="button" value="Submit">View Crimes</button>
+        </div>
+    </form>
+
     <form action="drugs.php">
         <div class="divText">
             <button class="button" value="Submit">View Drugs</button>
         </div>
     </form>
+
+    <form action="mainPage.php">
+        <div class="divText">
+            <button class="button" value="Submit">View Suspects</button>
+        </div>
+    </form>
+
+    <form action="drugs.php">
+        <div class="divText">
+            <button class="button" value="Submit">View Incidents</button>
+        </div>
+    </form>
+
     <hr>
     <?php
     if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "admin") {

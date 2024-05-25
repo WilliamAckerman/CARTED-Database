@@ -26,7 +26,7 @@ $result = mysqli_query($con, $query);
 </head>
 <body class="body">
 <div class="header">
-    <a href="LogoImage.png" class="logo">Drugs</a>
+    <a href="LogoImage.png" class="logo">Search Drugs</a>
     <div class="header-right">
         <a class="active" href="mainPage.php">Home</a>
         <a href="#contact">Contact Us</a>
@@ -52,7 +52,7 @@ $result = mysqli_query($con, $query);
                     <td><?php echo $row['drugName'] ?></td>
                     <td><?php echo $row['drugType'] ?></td>
                     <td><?php echo $row['unit'] ?></td>
-                    <td background-color="pink"><?php echo $row['unitPrice'] ?></td>
+                    <td><?php echo $row['unitPrice'] ?></td>
                     </tr>
                 <?php
             }
@@ -62,35 +62,26 @@ $result = mysqli_query($con, $query);
 <div class="divText">Drug pricing information obtained from UNODC (United Nations Office on Drugs and Crime)</div>
 <a href="https://dataunodc.un.org/dp-drug-prices"><span style="color:darkblue"><div class="divText">Link</div></span></a>
 <hr>
-<form action="searchDrugs.php">
-        <div class="divText">
+<div class="w3-container">
+<div class="divText">
+<h3>Standard Search</h3>
+<form action="drugs.php">
+        <label for="drugAttribute"><b>Drug Attribute</b></label>
+        <select id="drugAttribute" name="drugAttribute" size="1" required>
+            <option value="drugName">Drug Name</option>
+            <option value="drugType">Drug Type</option>
+            <option value="unit">Unit</option>
+        </select><br><br>
+        
+        <label for="dSearchValue"><b>Searching for...</b></label>
+        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue" required>
         <button class = "button" value="Submit">Search for a Record</button>
         </div>
-</form>
-<?php
-    if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "dataEntryClerk" or  $_SESSION['userPosition'] == "admin") {
-        ?>
-            <form action="drugs.php">
-                <div class="divText">
-                <button class = "button" value="Submit">Add a Record</button>
-                </div>
-            </form>
-        <?php
-    }
-    if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "admin") {
-        ?>
-            <form action="drugs.php">
-                <div class="divText">
-                <button class = "button" value="Submit">Delete a Record</button>
-                </div>
-            </form>
-        <?php
-    }
-    ?>
+</div>
 <hr>
-    <form action="mainPage.php">
+    <form action="drugs.php">
         <div class="divText">
-        <button class = "button" value="Submit">Return to Main Menu</button>
+        <button class = "button" value="Submit">Return to Drugs Table</button>
         </div>
     </form>
 <?php
