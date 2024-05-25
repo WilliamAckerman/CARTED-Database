@@ -67,14 +67,14 @@ $result = mysqli_query($con, $query);
 <h3>Standard Search</h3>
 <form action="drugs.php">
         <label for="drugAttribute"><b>Drug Attribute</b></label>
-        <select id="drugAttribute" name="drugAttribute" size="1" required>
+        <select id="drugAttribute" name="drugAttribute" size="1">
             <option value="drugName">Drug Name</option>
             <option value="drugType">Drug Type</option>
             <option value="unit">Unit</option>
         </select><br><br>
         
         <label for="dSearchValue"><b>Searching for...</b></label>
-        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue" required>
+        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue">
         <button class = "button" value="Submit">Search for a Record</button>
         </div>
 </div>
