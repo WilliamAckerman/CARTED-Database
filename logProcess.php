@@ -64,7 +64,7 @@ include ('CARTEDConnect.php');
             if($no>0) {
                 $data = mysqli_fetch_assoc($query);
                 if($data['userPassword']==$userPassword) {
-                    echo "Successfully logged in.";
+                    echo "<br>Successfully logged in.<br>";
                     session_start();
                     $_SESSION['username'] = $data['username'];
                     $_SESSION['userFName'] = $data['userFName'];

@@ -1,7 +1,9 @@
 <?php
 include ('CARTEDConnect.php');
 session_start();
-$query = "SELECT * FROM DRUGS";
+$drugOperator = $_POST['drugOperator'];
+$dPriceValue = $_POST['dPriceValue'];
+$query = "SELECT * FROM DRUGS WHERE unitPrice " . $drugOperator . $dPriceValue;
 $result = mysqli_query($con, $query);
 ?>
 <html>
@@ -35,7 +37,7 @@ $result = mysqli_query($con, $query);
 </div>
 <?php if(isset($_SESSION['username'])) {
 ?>
-<h2 class="display-6 text-center">Drugs</h2>
+<h2 class="display-6 text-center">Search Results</h2>
 <table>
     <tr>
         <th>Drug ID</th>
@@ -64,22 +66,6 @@ $result = mysqli_query($con, $query);
 <hr>
 <div class="w3-container">
 <div class="divText">
-<h3>Standard Search</h3>
-<form action="searchDrugsProcess.php" method="POST">
-        <label for="drugAttribute"><b>Drug Attribute</b></label>
-        <select id="drugAttribute" name="drugAttribute" size="1">
-            <option value="drugName">Drug Name</option>
-            <option value="drugType">Drug Type</option>
-            <option value="unit">Unit</option>
-        </select><br><br>
-        
-        <label for="dSearchValue"><b>Searching for...</b></label>
-        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue">
-        <button class = "button" value="Submit">Search for a Record</button>
-        </div>
-</div>
-</form>
-<hr>
     <form action="drugs.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Drugs Table</button>
