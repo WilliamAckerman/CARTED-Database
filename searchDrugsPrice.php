@@ -64,22 +64,24 @@ $result = mysqli_query($con, $query);
 <hr>
 <div class="w3-container">
 <div class="divText">
-<h3>Standard Search</h3>
-<form action="searchDrugsProcess.php" method="POST">
-        <label for="drugAttribute"><b>Drug Attribute</b></label>
-        <select id="drugAttribute" name="drugAttribute" size="1">
-            <option value="drugName">Drug Name</option>
-            <option value="drugType">Drug Type</option>
-            <option value="unit">Unit</option>
-        </select><br><br>
-        
-        <label for="dSearchValue"><b>Searching for...</b></label>
-        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue">
-        <button class = "button" value="Submit">Search for a Record</button>
-        </div>
+<h3>Price Search</h3>
+<form action="searchDrugsPriceProcess.php" method="POST">
+    <label for="drugOperator"><b>Operator</b></label>
+    <select id="drugOperator" name="drugOperator" size="1">
+        <option value=">">Greater than (>)</option>
+        <option value=">=">Greater than or equal to (>=)</option>
+        <option value="=">Equal to (=)</option>
+        <option value="<">Less than (<)</option>
+        <option value="<=">Less than or equal to (<=)</option>
+    </select>
+
+    <label for="drugPriceValue"><b>Price value to compare against</b></label>
+    <input type="number" placeholder="What number would you like to compare against?" name="dPriceValue" id="dPriceValue">
+    <button class="button" value="Submit">Search for a Record based on Price</button>
+    </div>
 </div>
-</form>
 <hr>
+</form>
     <form action="drugs.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Drugs Table</button>

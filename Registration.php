@@ -25,8 +25,8 @@ include ('CARTEDConnect.php');
         <label for="userLName"><b>Last Name</b></label>
         <input type="text" placeholder="Enter Last Name" name="userLName" id="userLName" required>
 
-        <label for="userEmail"><b>Email Address</b></label>
-        <input type="email" placeholder="Enter Email Address" name="userEmail" id="userEmail" required>
+        <label for="userEmail"><b>Business Email Address</b></label>
+        <input type="email" placeholder="Enter Business Email Address" name="userEmail" id="userEmail" required>
 
         <label for="userPhone"><b>Phone Number</b></label>
         <input type="number" placeholder="Enter Phone Number" name="userPhone" id="userPhone" maxlength="10" reqiored>

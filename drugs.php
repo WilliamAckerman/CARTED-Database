@@ -67,6 +67,11 @@ $result = mysqli_query($con, $query);
         <button class = "button" value="Submit">Search for a Record</button>
         </div>
 </form>
+<form action="searchDrugsPrice.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Search for a Record by Price</button>
+        </div>
+</form>
 <?php
     if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "dataEntryClerk" or  $_SESSION['userPosition'] == "admin") {
         ?>
