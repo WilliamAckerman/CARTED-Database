@@ -18,7 +18,7 @@ if($con->connect_error){
 <body class="body">
     <div class="w3-container w3-teal">
         <h1>Database Setup</h1>
-    <br></div>
+    <br></div><br>
     <img src="LogoImage.png" alt="Logo Image" class="center"><br>
 </body>
 </html>

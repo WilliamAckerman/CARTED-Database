@@ -21,7 +21,7 @@ if($con->query($sql) === TRUE)
     echo "Incidents table being initialized...<br>";
 
 $sql0 = "DROP TABLE IF EXISTS CARTELS";
-if($con->query($sql) === TRUE)
+if($con->query($sql0) === TRUE)
     echo "Cartels table being initialized...<br>";
 
 $sql2 = "CREATE TABLE IF NOT EXISTS CARTELS (
@@ -45,7 +45,7 @@ if($con->query($sql3) === TRUE) {
 $sql4 = "CREATE TABLE IF NOT EXISTS CRIMES (
     crimeID INT PRIMARY KEY AUTO_INCREMENT,
     crimeName VARCHAR(24) UNIQUE,
-    crimeDesc VARCHAR(100) NOT NULL
+    crimeDesc VARCHAR(250) NOT NULL
     )";
 if($con->query($sql4) === TRUE) {
     echo "Crimes table initialized.<br>";
@@ -61,9 +61,9 @@ if($con->query($sql5) === TRUE) {
 $sql6 = "CREATE TABLE IF NOT EXISTS DRUGS (
     drugID INT PRIMARY KEY AUTO_INCREMENT,
     drugName VARCHAR(24) UNIQUE,
-    drugType VARCHAR(32),
-    unit VARCHAR(12),
-    unitPrice DECIMAL (10, 2)
+    drugType VARCHAR(32) NOT NULL,
+    unit VARCHAR(12) NOT NULL,
+    unitPrice DECIMAL (10, 2) NOT NULL
     )";
 if($con->query($sql6) === TRUE) {
     echo "Drugs table initialized.<br>";

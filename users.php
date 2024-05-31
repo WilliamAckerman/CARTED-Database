@@ -53,10 +53,10 @@ $result = mysqli_query($con, $query);
                     <td><?php echo $row['userPhone'] ?></td>
                     <td><?php echo $row['userPosition'] ?></td>
                     <td><?php echo $row['userPassword'] ?></td>
+                    </tr>
                 <?php
             }
         ?>
-    </tr>
 </table>
 <hr>
     <form action="mainPage.php">
