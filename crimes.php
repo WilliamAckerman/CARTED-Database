@@ -1,17 +1,17 @@
 <?php
 include ('CARTEDConnect.php');
 session_start();
-$query = "SELECT * FROM DRUGS";
+$query = "SELECT * FROM CRIMES";
 $result = mysqli_query($con, $query);
 ?>
 <html>
 <head>
 <style>
     th {
-        background-color: green;
+        background-color: gold;
     }
     td {
-        background-color: lime;
+        background-color: yellow;
     }
     a {
     text-align: center;
@@ -21,12 +21,12 @@ $result = mysqli_query($con, $query);
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Drugs</title>
+<title>Crimes</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
 <body class="body">
 <div class="header">
-    <a href="LogoImage.png" class="logo">Drugs</a>
+    <a href="LogoImage.png" class="logo">Crimes</a>
     <div class="header-right">
         <a class="active" href="mainPage.php">Home</a>
         <a href="#contact">Contact Us</a>
@@ -35,47 +35,38 @@ $result = mysqli_query($con, $query);
 </div>
 <?php if(isset($_SESSION['username'])) {
 ?>
-<h2 class="display-6 text-center">Drugs</h2>
+<h2 class="display-6 text-center">Crimes</h2>
 <table>
     <tr>
-        <th>Drug ID</th>
-        <th>Drug Name</th>
-        <th>Drug Type</th>
-        <th>Unit</th>
-        <th>Average Unit Price</th>
+        <th>Crime ID</th>
+        <th>Crime Name</th>
+        <th>Crime Description</th>
     </tr>
     <tr>
         <?php
             while($row = mysqli_fetch_assoc($result)) {
                 ?>
-                    <td><?php echo $row['drugID'] ?></td>
-                    <td><?php echo $row['drugName'] ?></td>
-                    <td><?php echo $row['drugType'] ?></td>
-                    <td><?php echo $row['unit'] ?></td>
-                    <td background-color="pink"><?php echo $row['unitPrice'] ?></td>
+                    <td><?php echo $row['crimeID'] ?></td>
+                    <td><?php echo $row['crimeName'] ?></td>
+                    <td><?php echo $row['crimeDesc'] ?></td>
                     </tr>
                 <?php
             }
         ?>
 </table>
 <br>
-<div class="divText">Sample Drug pricing information obtained from UNODC (United Nations Office on Drugs and Crime)</div>
-<a href="https://dataunodc.un.org/dp-drug-prices"><span style="color:darkblue"><div class="divText">Link</div></span></a>
+<div class="divText">Sample Crime Information obtained from Grabel & Associates Michigan Criminal Lawyers</div>
+<a href="https://www.grabellaw.com/drug-crime-glossary-of-terms.html"><span style="color:darkblue"><div class="divText">Link</div></span></a>
 <hr>
-<form action="searchDrugs.php">
+<form action="searchCrimes.php">
         <div class="divText">
         <button class = "button" value="Submit">Search for a Record</button>
-        </div>
-</form>
-<form action="searchDrugsPrice.php">
-        <div class="divText">
-        <button class = "button" value="Submit">Search for a Record by Price</button>
         </div>
 </form>
 <?php
     if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "dataEntryClerk" or  $_SESSION['userPosition'] == "admin") {
         ?>
-            <form action="addDrug.php">
+            <form action="addCrime.php">
                 <div class="divText">
                 <button class = "button" value="Submit">Add a Record</button>
                 </div>
@@ -84,7 +75,7 @@ $result = mysqli_query($con, $query);
     }
     if($_SESSION['userPosition'] == "owner" or  $_SESSION['userPosition'] == "admin") {
         ?>
-            <form action="deleteDrug.php">
+            <form action="deleteCrime.php">
                 <div class="divText">
                 <button class = "button" value="Submit">Delete a Record</button>
                 </div>

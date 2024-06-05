@@ -1,8 +1,7 @@
 <?php
 include ('CARTEDConnect.php');
+include ('functions.php');
 session_start();
-$query = "SELECT * FROM DRUGS";
-$result = mysqli_query($con, $query);
 ?>
 <html>
 <head>
@@ -21,21 +20,31 @@ $result = mysqli_query($con, $query);
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Drugs</title>
+<title>Confirm Deletion</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
 <body class="body">
 <div class="header">
-    <a href="LogoImage.png" class="logo">Search Drugs</a>
+    <a href="LogoImage.png" class="logo">Confirm Deletion</a>
     <div class="header-right">
         <a class="active" href="mainPage.php">Home</a>
         <a href="#contact">Contact Us</a>
         <a href="about.php">About Us</a>
     </div>
 </div>
-<?php if(isset($_SESSION['username'])) {
+<?php 
+if(isset($_SESSION['username'])) {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $deleteDrugID = test_input($_POST['deleteDrugID']);
+    }
+    $query = "SELECT * FROM DRUGS WHERE drugID = $deleteDrugID";
+    $result = mysqli_query($con, $query);
 ?>
 <h2 class="display-6 text-center">Drugs</h2>
+<?php
+$check=validateInsert("drugID",$deleteDrugID,"drugs",$con);
+if($check==1) {
+?>
 <table>
     <tr>
         <th>Drug ID</th>
@@ -56,33 +65,35 @@ $result = mysqli_query($con, $query);
                     </tr>
                 <?php
             }
+            ?>
+            </table>
+            <hr>
+            <div class="w3-container">
+            <div class="divText">
+            <h3>Please confirm you would like to delete this record.</h3>
+            <form action="deleteDrugProcess.php" method="POST">
+                    <label for="deleteDrugID"><b>ID of row to be deleted</b></label>
+                    <input type="checkbox" placeholder="Please enter the ID of the record you would like to delete." name="deleteDrugID" id="deleteDrugID" value=<?php echo $_POST['deleteDrugID']?> required><br>
+                    <button class = "button" value="Submit">Confirm Record Deletion</button>
+                    </div>
+            </div>
+            </form>
+            <?php
+        }
+        else {
+            echo "No record was found with the specified drug ID.";
+        }
         ?>
-</table>
 <br>
-<div class="divText">Sample Drug pricing information obtained from UNODC (United Nations Office on Drugs and Crime)</div>
-<a href="https://dataunodc.un.org/dp-drug-prices"><span style="color:darkblue"><div class="divText">Link</div></span></a>
 <hr>
-<div class="w3-container">
-<div class="divText">
-<h3>Standard Search</h3>
-<form action="searchDrugsProcess.php" method="POST">
-        <label for="drugAttribute"><b>Drug Attribute</b></label>
-        <select id="drugAttribute" name="drugAttribute" size="1">
-            <option value="drugName">Drug Name</option>
-            <option value="drugType">Drug Type</option>
-            <option value="unit">Unit</option>
-        </select><br><br>
-        
-        <label for="dSearchValue"><b>Searching for...</b></label>
-        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue">
-        <button class = "button" value="Submit">Search for a Record</button>
-        </div>
-</div>
-</form>
-<hr>
-    <form action="drugs.php">
+<form action="drugs.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Drugs Table</button>
+        </div>
+    </form>
+<form action="mainPage.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Return to Main Menu</button>
         </div>
     </form>
 <?php

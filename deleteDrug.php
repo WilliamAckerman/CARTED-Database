@@ -21,12 +21,12 @@ $result = mysqli_query($con, $query);
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Drugs</title>
+<title>Delete from Drugs Table</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
 <body class="body">
 <div class="header">
-    <a href="LogoImage.png" class="logo">Search Drugs</a>
+    <a href="LogoImage.png" class="logo">Drugs</a>
     <div class="header-right">
         <a class="active" href="mainPage.php">Home</a>
         <a href="#contact">Contact Us</a>
@@ -46,6 +46,7 @@ $result = mysqli_query($con, $query);
     </tr>
     <tr>
         <?php
+        $counter=0;
             while($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <td><?php echo $row['drugID'] ?></td>
@@ -55,6 +56,7 @@ $result = mysqli_query($con, $query);
                     <td><?php echo $row['unitPrice'] ?></td>
                     </tr>
                 <?php
+                $counter++;
             }
         ?>
 </table>
@@ -64,25 +66,23 @@ $result = mysqli_query($con, $query);
 <hr>
 <div class="w3-container">
 <div class="divText">
-<h3>Standard Search</h3>
-<form action="searchDrugsProcess.php" method="POST">
-        <label for="drugAttribute"><b>Drug Attribute</b></label>
-        <select id="drugAttribute" name="drugAttribute" size="1">
-            <option value="drugName">Drug Name</option>
-            <option value="drugType">Drug Type</option>
-            <option value="unit">Unit</option>
-        </select><br><br>
-        
-        <label for="dSearchValue"><b>Searching for...</b></label>
-        <input type="text" placeholder="What value are you searching for?" name="dSearchValue" id="dSearchValue">
-        <button class = "button" value="Submit">Search for a Record</button>
+<h3>Please type in the ID number of the row you would like to delete.</h3>
+<form action="confirmDeleteDrug.php" method="POST">
+        <label for="deleteDrugID"><b>ID of row to be deleted</b></label>
+        <input type="number" placeholder="Please enter the ID of the record you would like to delete." name="deleteDrugID" id="deleteDrugID">
+        <button class = "button" value="Submit">Proceed to Delete Confirmation Screen</button>
         </div>
 </div>
 </form>
 <hr>
-    <form action="drugs.php">
+<form action="drugs.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Drugs Table</button>
+        </div>
+    </form>
+<form action="mainPage.php">
+        <div class="divText">
+        <button class = "button" value="Submit">Return to Main Menu</button>
         </div>
     </form>
 <?php

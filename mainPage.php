@@ -30,7 +30,7 @@ session_start();
         </div>
     </form>
 
-    <form action="mainPage.php">
+    <form action="crimes.php">
         <div class="divText">
             <button class="button" value="Submit">View Crimes</button>
         </div>

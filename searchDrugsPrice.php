@@ -59,7 +59,7 @@ $result = mysqli_query($con, $query);
         ?>
 </table>
 <br>
-<div class="divText">Drug pricing information obtained from UNODC (United Nations Office on Drugs and Crime)</div>
+<div class="divText">Sample Drug pricing information obtained from UNODC (United Nations Office on Drugs and Crime)</div>
 <a href="https://dataunodc.un.org/dp-drug-prices"><span style="color:darkblue"><div class="divText">Link</div></span></a>
 <hr>
 <div class="w3-container">

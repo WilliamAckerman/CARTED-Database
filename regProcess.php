@@ -15,6 +15,7 @@ include ('CARTEDConnect.php');
     <img src="LogoImage.png" alt="Logo Image" class="center"><br>
     <div class="divText">
     <?php
+    include ('functions.php');
         
         
         if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -78,13 +79,6 @@ include ('CARTEDConnect.php');
             } elseif(!preg_match("#[a-z]+#", $userCPassword)) {
                 $error = $error . "Password for re-enter password field should include at least one lowercase letter.<br>";
             }
-        }
-
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
         }
 
         if(empty($error)) {

@@ -17,7 +17,7 @@ include ('CARTEDConnect.php');
     <?php
 
     $sql = "INSERT INTO DRUGS (drugName, drugType, unit, unitPrice) VALUES
-    ('Ecstasy', 'Ecastasy', 'Pill', 19.5),
+    ('Ecstasy', 'Ecstasy', 'Pill', 19.5),
     ('Amphetamine', 'ATS', 'Gram', 203),
     ('Methamphetamine', 'ATS', 'Tablet', 19.5),
     ('Hashish (resin)', 'Cannabis', 'Gram', 40),
@@ -38,6 +38,24 @@ if($con->query($sql) === TRUE)
 else {
     echo "error";
 }
+
+
+$sql2="INSERT INTO CRIMES(crimeName,crimeDesc) VALUES
+('Drug Cultivation', 'Involves the growth of an illicit substance.'),
+('Drug Distribution', 'The transfer of drugs between persons.'),
+('Drug Manufacturing', 'Involves the creation of drugs.'),
+('Drug Trafficking', 'Involves transporting or distributing large amounts of drugs. This is normally done across state borders, though it can also be done internationally.'),
+('Possession', 'A person is found with an illegal substance or paraphernalia.'),
+('Possession with Intent', 'A person is found to knowingly have an illegal substance in their control, as well as an amount or reasons the person intends to distribute the substance.'),
+('Prescription Drug Crime', 'Can involve either unauthorized distribution or possession of prescription drugs, forged prescriptions, or doctor prescriptions.')";
+if(isset($_POST['crimes'])) {
+    if($con->query($sql2) === TRUE)
+    echo "Successfully inserted default data into crimes table.<br>";
+}
+else {
+    echo "error";
+}
+
 
 $con->close();
 ?>
