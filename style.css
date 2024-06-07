@@ -1,10 +1,21 @@
+.divText {
+    text-align:center;
+}
+
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: 250px;
-    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center3 {
+    margin: auto;
+    width: 60%;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .setupText {
@@ -14,7 +25,6 @@
 
 .body {
     background-color: 33CC99;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .button, .button:link {
@@ -32,10 +42,6 @@
 
 .button:hover, .button:active {
     background-color: slategray;
-}
-
-h2 {
-    text-align: center;
 }
 
 .container {
@@ -85,10 +91,6 @@ hr {
 .content {
     max-width: 500px;
     margin: auto;
-}
-
-.divText {
-    text-align:center;
 }
 
 .block {

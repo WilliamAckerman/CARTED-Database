@@ -74,7 +74,7 @@ include ('CARTEDConnect.php');
                     $_SESSION['userPosition'] = $data['userPosition'];
                     $_SESSION['userPassword'] = $data['userPassword'];
                     ?>
-                    <form action="mainPage.php">
+                    <form action="index.php">
                     <div class="w3-container">
                     <button class = "button" value="Submit">Continue</button>
                     </div>

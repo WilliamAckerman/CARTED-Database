@@ -76,7 +76,7 @@ $result = mysqli_query($con, $query);
         <button class = "button" value="Submit">Return to Crimes Table</button>
         </div>
     </form>
-<form action="mainPage.php">
+<form action="index.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Main Menu</button>
         </div>
