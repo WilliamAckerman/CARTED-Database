@@ -74,56 +74,112 @@ include ('CARTEDConnect.php');
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Registration</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .center3 {
+        margin: auto;
+        width: 60%;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
-<body class="body">
-<form name="registration" action="regProcess.php" onsubmit="return validateUser()" method="POST">
-    <div class="w3-container w3-teal">
-        <h1>User Registration</h1>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">CARTED</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+        </div>
     </div>
-    <div class="w3-container">
-        <h3>Please fill in all fields to create an account.</h3>
-        <hr>
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" id="username">
-        
-        <label for="userFName"><b>First Name</b></label>
-        <input type="text" placeholder="Enter First Name" name="userFName" id="userFName">
+</nav>
 
-        <label for="userLName"><b>Last Name</b></label>
-        <input type="text" placeholder="Enter Last Name" name="userLName" id="userLName">
+<div class="bg-info p-3">
+    <div class="container mt-3 rounded">
+    <form name="registration" action="regProcess.php" class="was-validated" onsubmit="return validateUser()" method="POST">
+    <h1>User Registration</h1>
+    <p>Please fill in all fields to create an account.</p>
+    <hr>
+        <div class="mb-3 mt-3">
+            <label for="username">Username:</label>
+            <input type="text" placeholder="Enter Username" name="username" id="username" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
 
-        <label for="userEmail"><b>Business Email Address</b></label>
-        <input type="email" placeholder="Enter Business Email Address" name="userEmail" id="userEmail">
+        <div class="mb-3">
+            <label for="userFName">First Name:</label>
+            <input type="text" placeholder="Enter First Name:" name="userFName" id="userFName" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
 
-        <label for="userPhone"><b>Phone Number</b></label>
-        <input type="number" placeholder="Enter Phone Number" name="userPhone" id="userPhone" maxlength="10">
+        <div class="mb-3">
+            <label for="userLName">Last Name:</label>
+            <input type="text" placeholder="Enter Last Name:" name="userLName" id="userLName" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
 
-        <label for="userPosition"><b>User Position</b></label>
-        <select id="userPosition" name="userPosition" size="1">
-            <option value="owner">Owner</option>
-            <option value="admin">Admin</option>
-            <option value="schemaOwner">Schema Owner</option>
-            <option value="dataAnalystReader">Data Analyst/Reader</option>
-            <option value="dataEntryClerk">Data Entry Clerk</option>
-            <option value="applicationUser">Application User</option>
-        </select><br><br>
+        <div class="mb-3">
+            <label for="userEmail">Business Email Address:</label>
+            <input type="email" placeholder="Enter Business Email Address:" name="userEmail" id="userEmail" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
 
-        <label for="userPassword"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="userPassword" id="userPassword">
+        <div class="mb-3">
+            <label for="userPhone">Phone Number:</label>
+            <input type="number" placeholder="Enter Phone Number:" name="userPhone" id="userPhone" maxlength="10" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
 
-        <label for="userCPassword"><b>Confirm Password</b></label>
-        <input type="password" placeholder="Re-Enter Password" name="userCPassword" id="userCPassword">
-        <hr>
+        <div class="mb-3">
+            <label for="userPosition">User Position:</label>
+            <select id="userPosition" name="userPosition" size="1">
+                <option value="owner">Owner</option>
+                <option value="admin">Admin</option>
+                <option value="schemaOwner">Schema Owner</option>
+                <option value="dataAnalystReader">Data Analyst/Reader</option>
+                <option value="dataEntryClerk">Data Entry Clerk</option>
+                <option value="applicationUser">Application User</option>
+            </select>
+        </div>
 
-        <button type="submit" class="block">Register</button>
-        <hr>
+        <div class="mb-3">
+            <label for="userPassword">Password:</label>
+            <input type="password" placeholder="Enter Password:" name="userPassword" id="userPassword" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="userCPassword">Confirm Password:</label>
+            <input type="password" placeholder="Re-Enter Password:" name="userCPassword" id="userCPassword" required>
+            <div class="valid-feedback">Valid</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    </div><br><br>
+
+    <div class="btn-group center3">
+        <a href="RegiLog.php" class="btn bg-primary text-light">Return</a>
     </div>
-</form>
-<form action="RegiLog.php">
-    <div class="divText">
-    <button class = "button" value="Submit">Return</button>
-    </div>
-</form>
+</div>
+
 </body>
 </html>
