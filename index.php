@@ -73,7 +73,7 @@ session_start();
             <a href="index.php" class="btn bg-warning">View Cartels</a>
             <a href="crimes.php" class="btn bg-secondary text-light">View Crimes</a>
             <a href="drugs.php" class="btn bg-warning">View Drugs</a>
-            <a href="index.php" class="btn bg-secondary text-light">View Suspects</a>
+            <a href="suspects.php" class="btn bg-secondary text-light">View Suspects</a>
             <a href="index.php" class="btn bg-warning">View Incidents</a>
         </div>
     </div>
