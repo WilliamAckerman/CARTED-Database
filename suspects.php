@@ -144,7 +144,7 @@ if ($_SESSION['userPosition'] == "owner" or $_SESSION['userPosition'] == "admin"
                 </div><br><br>
 
                 <div class="btn-group center3">
-                    <a href="addDrug.php" class="btn bg-danger text-light <?php echo $enable1; ?>">Add a Record</a>
+                    <a href="addSuspect.php" class="btn bg-danger text-light <?php echo $enable1; ?>">Add a Record</a>
                 </div><br><br>
 
                 <div class="btn-group center3">

@@ -113,7 +113,7 @@ session_start();
 </div>
 <?php if(isset($_SESSION['username'])) {
 ?>
-<form name ="addSuspect" action="addSuspectsProcess.php" onsubmit="return validateSuspect()" method="POST">
+<form name ="addSuspect" action="addSuspectProcess.php" onsubmit="return validateSuspect()" method="POST">
 <div class="w3-container">
 <h3>Please fill in all fields to add a new record.</h3>
 <hr>
@@ -143,11 +143,11 @@ session_start();
     <label for="weight_kg"><b>Height</b></label>
     <input type="number" name="weight_kg" id="weight_kg">
 
-    <label for="suspectAddress"><b>Nick Name</b></label>
+    <label for="suspectAddress"><b>Suspect Address</b></label>
     <input type="text" placeholder="Enter Nick Name" name="suspectAddress" id="suspectAddress">
 
-    <label for="suspectAddress"><b>Nick Name</b></label>
-    <input type="text" placeholder="Enter Nick Name" name="suspectAddress" id="suspectAddress">
+    <label for="tattoos"><b>Tattoos</b></label>
+    <input type="text" placeholder="Enter Nick Name" name="tattoos" id="tattoos">
 
     <label for="gender"><b>Gender</b></label>
     <input type="radio" name="gender" value="male">
