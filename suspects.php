@@ -148,7 +148,7 @@ if ($_SESSION['userPosition'] == "owner" or $_SESSION['userPosition'] == "admin"
                 </div><br><br>
 
                 <div class="btn-group center3">
-                    <a href="deleteDrug.php" class="btn bg-primary text-light <?php echo $enable2; ?>">Delete a Record</a>
+                    <a href="deleteSuspect.php" class="btn bg-primary text-light <?php echo $enable2; ?>">Delete a Record</a>
                 </div>
             </div>
 
