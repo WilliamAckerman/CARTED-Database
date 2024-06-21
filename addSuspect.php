@@ -4,9 +4,16 @@ session_start();
 ?>
 <html>
 <script>
-    function validateSuspect() {
-    let error="";
+    function checkform(form){
+        let testform = document.getElementById(form);
+        let testform2 = document.forms["addSuspect"];
+        console.log(testform2);
 
+    }
+    function validateSuspect() {
+    
+    let error="";
+    console.log(document.forms["addSuspect"]);
     let x=document.forms["addSuspect"]["fName"].value;
     let xE=x.trim();
 
@@ -95,16 +102,34 @@ session_start();
     text-align: center;
     vertical-align: center;
     }
+    .radio {
+        appearance: none;
+
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+
+        border: 2px solid #999;
+        transition: 0.2s all linear;
+        margin-right: 5px;
+
+        position: relative;
+        top: 4px;
+    }
+    .radio:checked {
+        border: 6px solid black;
+    }
+
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Add a Record to Drugs</title>
+<title>Add a Record to Suspects</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
 </head>
 <body class="body">
 <div class="header">
-    <a href="LogoImage.png" class="logo">Add a Record to Drugs</a>
+    <a href="LogoImage.png" class="logo">Add a Record to Suspects</a>
     <div class="header-right">
         <a class="active" href="mainPage.php">Home</a>
         <a href="#contact">Contact Us</a>
@@ -113,45 +138,45 @@ session_start();
 </div>
 <?php if(isset($_SESSION['username'])) {
 ?>
-<form name ="addSuspect" action="addSuspectProcess.php" onsubmit="return validateSuspect()" method="POST">
+<form name ="addSuspect" id="suspectForm" action="addSuspectProcess.php" onsubmit="return validateSuspect()" method="POST" onchange="checkform('suspectForm')">
 <div class="w3-container">
 <h3>Please fill in all fields to add a new record.</h3>
 <hr>
     <label for="fName"><b>First Name</b></label>
-    <input type="text" placeholder="Enter First name" name="fName" id="fName" maxlength="24">
+    <input type="text" placeholder="Enter First name" name="fName" id="fName" maxlength="24" required>
 
     <label for="mName"><b>Middle Name</b></label>
-    <input type="text" placeholder="Enter Middle Name" name="mName" id="mName" maxlength="32">
+    <input type="text" placeholder="Enter Middle Name" name="mName" id="mName" maxlength="32" required>
 
     <label for="lName"><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="lName" id="lName" maxlength="24">
+    <input type="text" placeholder="Enter Last Name" name="lName" id="lName" maxlength="24" required>
 
     <label for="nickname"><b>Nick Name</b></label>
-    <input type="text" placeholder="Enter Nick Name" name="nickname" id="nickname" max length="32">
+    <input type="text" placeholder="Enter Nick Name" name="nickname" id="nickname" max length="32" required>
 
     <label for="arrested"><b>IsArrested</b></label>
-    <input type="radio" name="arrested" value="yes">
-    <input type="radio" name="arrested" value="no">
+    <label for="arrested">Yes</label><input class="radio" type="radio" name="arrested" value=2 required>
+    <label for="arrested">No</label><input class="radio" type="radio" name="arrested" value=1>
+<br>
+    <label for="arrestedPrior"><b>Arrested Before?</b></label>
+    <label for="arrestedPrior">Yes</label><input class="radio" type="radio" name="arrestedPrior" value=2 required>
+    <label for="arrestedPrior">No</label><input class="radio" type="radio" name="arrestedPrior" value=1>
+<br>
+    <label for="height_cm"><b>Height (Centimeters)</b></label>
+    <input type="number" name="height_cm" id="height_cm" required>
 
-    <label for="arrestedPrior"><b>IsArrested</b></label>
-    <input type="radio" name="arrestedPrior" value="yes">
-    <input type="radio" name="arrestedPrior" value="no">
-
-    <label for="height_cm"><b>Height</b></label>
-    <input type="number" name="height_cm" id="height_cm">
-
-    <label for="weight_kg"><b>Height</b></label>
-    <input type="number" name="weight_kg" id="weight_kg">
+    <label for="weight_kg"><b>Weight (Kilograms)</b></label>
+    <input type="number" name="weight_kg" id="weight_kg" required>
 
     <label for="suspectAddress"><b>Suspect Address</b></label>
-    <input type="text" placeholder="Enter Nick Name" name="suspectAddress" id="suspectAddress">
+    <input type="text" placeholder="Enter Nick Name" name="suspectAddress" id="suspectAddress" required>
 
     <label for="tattoos"><b>Tattoos</b></label>
-    <input type="text" placeholder="Enter Nick Name" name="tattoos" id="tattoos">
+    <input type="text" placeholder="Enter Nick Name" name="tattoos" id="tattoos" required>
 
     <label for="gender"><b>Gender</b></label>
-    <input type="radio" name="gender" value="male">
-    <input type="radio" name="gender" value="female">
+    <label for="gender">Male</label><input class="radio" type="radio" name="gender" value="M" required>
+    <label for="gender">Female</label><input class="radio" type="radio" name="gender" value="F">
 
     <button type="submit" class="block">Add a Record</button>
     <hr>
@@ -162,7 +187,7 @@ session_start();
         <button class = "button" value="Submit">Return to Drugs Table</button>
         </div>
     </form>
-    <form action="mainPage.php">
+    <form action="index.php">
         <div class="divText">
         <button class = "button" value="Submit">Return to Main Menu</button>
         </div>
