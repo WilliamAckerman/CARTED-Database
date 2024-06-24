@@ -60,6 +60,9 @@ include ('CARTEDConnect.php');
         error+="Confirm password field must be filled out.\n";
         
     }
+    if(fE != gE) {
+        error+="Password do not match.\n";
+    }
 
     if(error=="") {
         return true;

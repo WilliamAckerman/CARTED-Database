@@ -70,11 +70,11 @@ session_start();
     <div class="container-md p-2 my-3 bg-light text-black rounded">
         <h2 class="divText">Tables</h2><br>
         <div class="btn-group center3">
-            <a href="index.php" class="btn bg-warning">View Cartels</a>
+            <a href="cartels.php" class="btn bg-warning">View Cartels</a>
             <a href="crimes.php" class="btn bg-secondary text-light">View Crimes</a>
             <a href="drugs.php" class="btn bg-warning">View Drugs</a>
-            <a href="index.php" class="btn bg-secondary text-light">View Suspects</a>
-            <a href="index.php" class="btn bg-warning">View Incidents</a>
+            <a href="#" class="btn bg-secondary text-light">View Suspects</a>
+            <a href="#" class="btn bg-warning">View Incidents</a>
         </div>
     </div>
 
