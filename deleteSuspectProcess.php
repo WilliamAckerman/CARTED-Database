@@ -7,12 +7,12 @@ session_start();
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="header.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title>Delete Crime Process</title>
+        <title>Delete Suspect Process</title>
         <link rel="icon" type="image/x-icon" href="LogoImage.png">
     </head>
     <body class="body">
         <div class="header">
-            <a href="LogoImage.png" class="logo">Delete a Record from Crimes</a>
+            <a href="LogoImage.png" class="logo">Delete a Record from Drugs</a>
                 <div class="header-right">
                 <a class="active" href="mainPage.php">Home</a>
                 <a href="#contact">Contact Us</a>
@@ -24,20 +24,20 @@ session_start();
         if(isset($_SESSION['username'])) {
 
             if($_SERVER["REQUEST_METHOD"] == "POST") {
-                $deleteCrimeID=test_input($_POST['deleteCrimeID']);
+                $deleteSuspectID=test_input($_POST['deleteSuspectID']);
             }
 
-            $sql = "DELETE FROM CRIMES WHERE crimeID = $deleteCrimeID";
+            $sql = "DELETE FROM Suspects WHERE suspectID = $deleteSuspectID";
     
             if($con->query($sql) === TRUE) {
-                echo "Record deleted from the crimes table.";
+                echo "Record deleted from the Suspects table.";
             } else {
-                echo "Failed to delete specified record from the crime table: <br>" . $con->error;
+                echo "Failed to delete specified record from the Suspects table: <br>" . $con->error;
             }
         ?>
-        <form action="crimes.php">
+        <form action="suspects.php">
                     <div class="divText">
-                        <button class="button" value="Submit">Return to Crimes Table</button>
+                        <button class="button" value="Submit">Return to Suspects Table</button>
                     </div>
                 </form>
         <form action="index.php">

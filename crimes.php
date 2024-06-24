@@ -56,7 +56,7 @@ else {
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)">CARTED</a>
+        <a class="navbar-brand" href="index.php">CARTED</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -114,15 +114,15 @@ else {
         <h2 class="divText">Functions</h2><br>
 
         <div class="btn-group center3">
-        <a href="searchCrime.php" class="btn bg-success text-light">Search for a Record</a>
+        <a href="searchCrimes.php" class="btn bg-success text-light">Search for a Record</a>
         </div><br><br>
 
         <div class="btn-group center3">
-        <a href="addDrug.php" class="btn bg-danger text-light <?php echo $enable1; ?>">Add a Record</a>
+        <a href="addCrime.php" class="btn bg-danger text-light <?php echo $enable1; ?>">Add a Record</a>
         </div><br><br>
 
         <div class="btn-group center3">
-        <a href="deleteDrug.php" class="btn bg-primary text-light <?php echo $enable2; ?>">Delete a Record</a>
+        <a href="deleteCrime.php" class="btn bg-primary text-light <?php echo $enable2; ?>">Delete a Record</a>
         </div>
 </div>
 
