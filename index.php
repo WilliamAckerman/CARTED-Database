@@ -14,6 +14,10 @@ session_start();
         else {
             $enable2 = "disabled";
         }
+
+        if (empty ($_SESSION['userPosition'])){
+            header("Location: RegiLog.php");
+        }
 ?>
 <html>
 <head>
