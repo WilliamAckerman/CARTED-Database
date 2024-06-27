@@ -56,6 +56,26 @@ else {
     echo "error";
 }
 
+$sql3="INSERT INTO CARTELS(cartelName, stateAbbr, city, country) VALUES
+('Black Heart Syndiacate', 'CT', 'Windham', 'USA'),
+('Dark Spearheads', 'TN', 'Gallatin', 'USA'),
+('Horsehead Knights', 'CA', 'Indio', 'USA'),
+('Moldy Windmill', 'NV', 'Sparks', 'USA'),
+('Seagull Volley', 'NV', 'Plymouth', 'USA'),
+('Crossbow Agents', 'KY', 'Newport', 'USA'),
+('Doll Launchers', 'IL', 'Calumet City', 'USA'),
+('Plant Copters', 'AR', 'Osceola', 'USA'),
+('Emporium', 'ME', 'Kittery', 'USA'),
+('Grass Growers', 'ME', 'Brunswick', 'USA')";
+
+if(isset($_POST['cartels'])) {
+    if($con->query($sql3)===TRUE)
+    echo "Successfully inserted default data into cartels table.<br>";
+}
+else {
+    echo "error";
+}
+
 
 $con->close();
 ?>

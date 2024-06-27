@@ -7,13 +7,28 @@ include ('CARTEDConnect.php');
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Registration Process</title>
 <link rel="icon" type="image/x-icon" href="LogoImage.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="body">
-    <div class="w3-container w3-teal">
-        <h1>Registration Process</h1>
-    <br></div>
-    <img src="LogoImage.png" alt="Logo Image" class="center"><br>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">CARTED</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+        </div>
+    </div>
+</nav>
+
+<div class="bg-info p-3">
+
+    <img class="img-fluid mx-auto d-block" src="LogoImage.png"><br>
+
     <div class="divText">
+
+    
     <?php
     include ('functions.php');
         
@@ -87,21 +102,43 @@ include ('CARTEDConnect.php');
             VALUES ('$username', '$userFName', '$userLName', '$userEmail', '$userPhone', '$userPosition', '$userPassword')";
     
             if($con->query($sql) === TRUE) {
-                echo "New user successfully created.";
+                ?>
+                <div class="alert alert-success">
+                    <strong>New user successfully created.</strong>
+                </div>
+                <?php
             } else {
-                echo "Failed to create new user: <br>" . $con->error;
+                ?>
+
+                <div class="alert alert-danger">
+                    <strong>Failed to create new user: <br> <?php echo $con->error; ?></strong>
+                </div>
+                <?php
             }
         }
         else {
-            echo $error;
+            ?>
+
+            <div class="alert alert-danger">
+                <strong>
+                    <?php echo $error; ?>
+                </strong>
+            </div>
+            <?php
         }
 
         ?>
         </div>
-        <form action="RegiLog.php">
-        <div class="divText">
-         <button class = "button" value="Submit">Return to Login/Registration Selection</button>
-         </div>
-        </form>
+
+        <div class="container-md p-2 my-3 bg-light text-black rounded">
+        <h2 class="divText">Login/Registration</h2><br>
+
+        <div class="btn-group center3">
+        <a href="RegiLog.php" class="btn bg-success text-light">Return to Login/Registration Selection</a>
+        </div><br>
+
+        </div>
+        
+        </div>
 </body>
 </html>
